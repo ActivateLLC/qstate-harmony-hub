@@ -10,9 +10,9 @@ const Login = () => {
 
       <Link 
         to="/" 
-        className="fixed top-6 left-6 glass-card p-2 hover:scale-105 transition-transform"
+        className="fixed top-8 left-8 glass-card p-3 hover:scale-105 transition-transform group z-50"
       >
-        <ArrowLeft className="w-6 h-6 text-white" />
+        <ArrowLeft className="w-6 h-6 text-white group-hover:text-qblue transition-colors" />
       </Link>
 
       <motion.div 
