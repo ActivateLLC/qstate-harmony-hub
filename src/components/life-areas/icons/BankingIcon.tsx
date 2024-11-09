@@ -18,9 +18,8 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
       {[...Array(3)].map((_, index) => (
         <motion.div
           key={`bitcoin-${index}`}
-          initial={{ opacity: 0, scale: 0, y: 0 }}
-          animate={{ opacity: 0, scale: 0.5, y: 0 }}
-          whileHover={{ 
+          initial={{ opacity: 0, scale: 0.5, y: 0 }}
+          whileInView={{ 
             opacity: [0, 1, 1, 0],
             scale: [0.5, 1, 1, 0.5],
             y: [-10 * (index + 1), -30 * (index + 1)],
@@ -30,7 +29,7 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
             duration: 1.5,
             delay: index * 0.2,
           }}
-          className="absolute -right-4 top-0 group-hover:opacity-100"
+          className="absolute -right-4 top-0 opacity-0 group-hover:opacity-100"
         >
           <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qpink' : 'text-qblue'}`}>₿</div>
         </motion.div>
@@ -38,9 +37,8 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
       {[...Array(3)].map((_, index) => (
         <motion.div
           key={`cash-${index}`}
-          initial={{ opacity: 0, scale: 0, y: 0 }}
-          animate={{ opacity: 0, scale: 0.5, y: 0 }}
-          whileHover={{ 
+          initial={{ opacity: 0, scale: 0.5, y: 0 }}
+          whileInView={{ 
             opacity: [0, 1, 1, 0],
             scale: [0.5, 1, 1, 0.5],
             y: [-5 * (index + 1), -25 * (index + 1)],
@@ -50,7 +48,7 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
             duration: 1.8,
             delay: index * 0.3,
           }}
-          className="absolute -left-4 top-0 group-hover:opacity-100"
+          className="absolute -left-4 top-0 opacity-0 group-hover:opacity-100"
         >
           <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`}>$</div>
         </motion.div>
