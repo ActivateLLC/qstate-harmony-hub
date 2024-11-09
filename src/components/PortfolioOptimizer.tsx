@@ -8,8 +8,14 @@ import { useToast } from "@/components/ui/use-toast";
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { motion } from "framer-motion";
 
+const generateRandomTickers = (count: number) => {
+  const tickers = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'TSLA', 'NVDA', 'AMD', 'INTC', 'IBM', 'NFLX', 'DIS', 'PYPL', 'V', 'MA'];
+  return Array.from({ length: count }, () => tickers[Math.floor(Math.random() * tickers.length)]);
+};
+
 const PortfolioOptimizer = () => {
   const [numAssets, setNumAssets] = useState(5);
+  const [recommendedTickers, setRecommendedTickers] = useState<string[]>([]);
   const { toast } = useToast();
 
   const { data, isLoading, error, refetch } = useQuery({
@@ -19,6 +25,7 @@ const PortfolioOptimizer = () => {
   });
 
   const handleOptimize = () => {
+    setRecommendedTickers(generateRandomTickers(numAssets));
     refetch();
     toast({
       title: "Optimization Started",
@@ -90,6 +97,26 @@ const PortfolioOptimizer = () => {
             >
               {isLoading ? "Optimizing..." : "Optimize Portfolio"}
             </Button>
+
+            {recommendedTickers.length > 0 && (
+              <div className="relative mt-4">
+                <div className="glass-card p-4 blur-sm">
+                  <h3 className="text-lg font-semibold text-qblue mb-2">Recommended Tickers</h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {recommendedTickers.map((ticker, index) => (
+                      <div key={index} className="glass-card p-2 text-center text-qpink">
+                        {ticker}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center glass-card bg-gradient-to-r from-qblue/20 to-qpink/20 border-t-2 border-qblue/50 backdrop-blur-xl">
+                  <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-pulse glow-text">
+                    Subscribe to Unlock Full Analysis
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="relative h-[300px]">
@@ -112,11 +139,6 @@ const PortfolioOptimizer = () => {
                 </PieChart>
               </ResponsiveContainer>
             )}
-            <div className="absolute bottom-0 left-0 right-0 glass-card p-4 text-center bg-gradient-to-r from-qblue/20 to-qpink/20 border-t-2 border-qblue/50 backdrop-blur-xl">
-              <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-pulse glow-text">
-                Subscribe to Unlock Full Analysis
-              </span>
-            </div>
           </div>
         </div>
 
