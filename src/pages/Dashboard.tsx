@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowUpRight, Brain, Cpu, Database } from "lucide-react";
+import Logo from "@/components/Logo";
+import AuthButtons from "@/components/AuthButtons";
 
 const Dashboard = () => {
   return (
