@@ -25,9 +25,27 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
+          {/* Enhanced background effects */}
           <div className="absolute inset-0 bg-gradient-to-b from-qblue/10 via-qdark to-qdark opacity-80" />
           <div className="absolute bottom-0 w-full h-64 bg-gradient-to-t from-qdark to-transparent" />
           <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.1)_0%,transparent_50%)]" />
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          
+          {/* Light Beams */}
+          <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-qblue via-transparent to-transparent opacity-30 animate-pulse" />
+          <div className="absolute right-1/4 top-0 w-px h-full bg-gradient-to-b from-qpink via-transparent to-transparent opacity-30 animate-pulse delay-300" />
+          <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-qblue via-transparent to-transparent opacity-20 animate-pulse delay-500" />
+          <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-qpink via-transparent to-transparent opacity-20 animate-pulse delay-700" />
+          
+          {/* Circular Interface Elements */}
+          <div className="absolute top-20 left-20 w-32 h-32 rounded-full border border-qblue/20 animate-ping" />
+          <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full border border-qpink/20 animate-ping delay-1000" />
+          
+          {/* Interface Lines */}
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qblue/20 to-transparent" />
+          <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qpink/20 to-transparent" />
         </div>
         
         <div className="container mx-auto px-4 relative z-20">
@@ -48,14 +66,26 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Decorative Elements */}
+        {/* Enhanced Decorative Elements */}
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-qblue to-transparent animate-pulse" />
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-qpink to-transparent opacity-20" />
+        
+        {/* Interface Circles */}
+        <div className="absolute left-10 bottom-10 w-16 h-16 rounded-full border border-qblue/30 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-qblue/10 animate-ping" />
+        </div>
+        <div className="absolute right-10 top-10 w-16 h-16 rounded-full border border-qpink/30 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-qpink/10 animate-ping" />
+        </div>
       </section>
 
       {/* Life Areas Grid */}
       <section className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,0,160,0.1)_0%,transparent_50%)]" />
+        <div className="absolute inset-0">
+          {/* Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,0,160,0.1)_0%,transparent_50%)]" />
+        </div>
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl font-bold text-center mb-16">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-glow">
