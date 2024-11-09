@@ -117,6 +117,43 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
               <Icon className="w-6 h-6 animate-glow" />
             </motion.div>
           </div>
+        ) : title === "Banking & Finance" ? (
+          <div className="relative">
+            <Icon className="w-12 h-12 animate-glow" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0, y: 0 }}
+              whileHover={{ 
+                opacity: [0, 1, 1, 0],
+                scale: [0.5, 1, 1, 0.5],
+                y: [0, -20, -20, 0],
+                transition: {
+                  duration: 1.5,
+                  times: [0, 0.3, 0.7, 1],
+                  repeat: Infinity,
+                }
+              }}
+              className="absolute -right-2 top-0"
+            >
+              <div className="text-lg font-bold text-qpink">$</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0, y: 0 }}
+              whileHover={{ 
+                opacity: [0, 1, 1, 0],
+                scale: [0.5, 1, 1, 0.5],
+                y: [0, -15, -15, 0],
+                transition: {
+                  duration: 1.5,
+                  delay: 0.2,
+                  times: [0, 0.3, 0.7, 1],
+                  repeat: Infinity,
+                }
+              }}
+              className="absolute right-2 top-0"
+            >
+              <div className="text-lg font-bold text-qblue">$</div>
+            </motion.div>
+          </div>
         ) : (
           <Icon className="w-12 h-12 animate-glow" />
         )}
