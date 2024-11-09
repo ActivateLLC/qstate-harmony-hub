@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Droplets, Dumbbell, Pills } from "lucide-react";
+import { Brain, Droplets, Dumbbell, Pill } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -26,7 +26,7 @@ export const SmartRecommendationsCard: React.FC = () => {
             className="w-full"
             onClick={() => toast.info("Calculating optimal supplement intake...")}
           >
-            <Pills className="w-4 h-4 mr-2" /> Supplement Plan
+            <Pill className="w-4 h-4 mr-2" /> Supplement Plan
           </Button>
           <Button 
             variant="outline" 
