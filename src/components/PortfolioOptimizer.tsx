@@ -112,8 +112,10 @@ const PortfolioOptimizer = () => {
                 </PieChart>
               </ResponsiveContainer>
             )}
-            <div className="absolute bottom-0 left-0 right-0 glass-card p-4 text-center">
-              <span className="text-qblue glow-text">Subscribe to Unlock Full Analysis</span>
+            <div className="absolute bottom-0 left-0 right-0 glass-card p-4 text-center bg-gradient-to-r from-qblue/20 to-qpink/20 border-t-2 border-qblue/50 backdrop-blur-xl">
+              <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-pulse glow-text">
+                Subscribe to Unlock Full Analysis
+              </span>
             </div>
           </div>
         </div>
