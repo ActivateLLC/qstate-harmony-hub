@@ -3,6 +3,7 @@ import { LucideIcon } from "lucide-react";
 import HealthcareIcon from "./icons/HealthcareIcon";
 import BankingIcon from "./icons/BankingIcon";
 import EducationIcon from "./icons/EducationIcon";
+import SecurityIcon from "./icons/SecurityIcon";
 
 interface AreaCardProps {
   title: string;
@@ -75,6 +76,16 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             repeatType: "mirror" as const
           }
         };
+      case "Security":
+        return {
+          scale: [1, 1.1, 1],
+          transition: {
+            duration: 1.5,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror" as const
+          }
+        };
       default:
         return {};
     }
@@ -100,6 +111,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           <BankingIcon Icon={Icon} />
         ) : title === "Education" ? (
           <EducationIcon Icon={Icon} color={color} />
+        ) : title === "Security" ? (
+          <SecurityIcon Icon={Icon} color={color} />
         ) : (
           <Icon className="w-12 h-12" />
         )}
