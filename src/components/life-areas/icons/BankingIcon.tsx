@@ -7,7 +7,7 @@ interface BankingIconProps {
 
 const BankingIcon = ({ Icon }: BankingIconProps) => {
   return (
-    <div className="relative">
+    <div className="relative group">
       <Icon className="w-12 h-12" />
       <motion.div
         whileHover={{ scale: 1.1 }}
@@ -19,19 +19,18 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
         <motion.div
           key={`bitcoin-${index}`}
           initial={{ opacity: 0, scale: 0, y: 0 }}
+          animate={{ opacity: 0, scale: 0.5, y: 0 }}
           whileHover={{ 
             opacity: [0, 1, 1, 0],
             scale: [0.5, 1, 1, 0.5],
             y: [-10 * (index + 1), -30 * (index + 1)],
             x: [index * 10 - 10, index * 20 - 20],
-            transition: {
-              duration: 1.5,
-              delay: index * 0.2,
-              repeat: Infinity,
-              repeatType: "loop"
-            }
           }}
-          className="absolute -right-4 top-0"
+          transition={{
+            duration: 1.5,
+            delay: index * 0.2,
+          }}
+          className="absolute -right-4 top-0 group-hover:opacity-100"
         >
           <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qpink' : 'text-qblue'}`}>₿</div>
         </motion.div>
@@ -40,19 +39,18 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
         <motion.div
           key={`cash-${index}`}
           initial={{ opacity: 0, scale: 0, y: 0 }}
+          animate={{ opacity: 0, scale: 0.5, y: 0 }}
           whileHover={{ 
             opacity: [0, 1, 1, 0],
             scale: [0.5, 1, 1, 0.5],
             y: [-5 * (index + 1), -25 * (index + 1)],
             x: [-index * 10 - 5, -index * 20 - 10],
-            transition: {
-              duration: 1.8,
-              delay: index * 0.3,
-              repeat: Infinity,
-              repeatType: "loop"
-            }
           }}
-          className="absolute -left-4 top-0"
+          transition={{
+            duration: 1.8,
+            delay: index * 0.3,
+          }}
+          className="absolute -left-4 top-0 group-hover:opacity-100"
         >
           <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`}>$</div>
         </motion.div>
