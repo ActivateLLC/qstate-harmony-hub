@@ -43,24 +43,19 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             ease: "easeInOut",
             times: [0, 0.5, 1],
             repeat: Infinity,
-            repeatType: "reverse"
+            repeatType: "mirror"
           }
         };
       case "Housing":
         return {
-          y: [0, -10, 0],
-          rotate: [0, 2, 0, -2, 0],
+          scale: [1, 1, 1, 1],
+          y: [0, -5, -5, 0],
+          rotate: [0, 0, 0, 0],
           transition: {
-            y: {
-              duration: 2,
-              ease: "easeInOut",
-              repeat: Infinity,
-            },
-            rotate: {
-              duration: 4,
-              ease: "easeInOut",
-              repeat: Infinity,
-            }
+            duration: 3,
+            times: [0, 0.3, 0.7, 1],
+            repeat: Infinity,
+            repeatType: "loop"
           }
         };
       case "Health & Nutrition":
@@ -101,7 +96,37 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         className={`${color} mb-6 relative`}
         whileHover={getIconAnimation(title)}
       >
-        <Icon className="w-12 h-12 animate-glow" />
+        {title === "Housing" ? (
+          <div className="relative">
+            <Icon className="w-12 h-12 animate-glow" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, x: 10, y: 5 }}
+              animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 0.5], x: [10, 10, 10, 10], y: [5, 5, 5, 5] }}
+              transition={{
+                duration: 3,
+                times: [0, 0.3, 0.7, 1],
+                repeat: Infinity,
+                repeatType: "loop"
+              }}
+            >
+              <Icon className="w-8 h-8 absolute -right-4 top-0 animate-glow" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, x: -10, y: 8 }}
+              animate={{ opacity: [0, 0, 1, 0], scale: [0.5, 0.5, 1, 0.5], x: [-10, -10, -10, -10], y: [8, 8, 8, 8] }}
+              transition={{
+                duration: 3,
+                times: [0, 0.3, 0.7, 1],
+                repeat: Infinity,
+                repeatType: "loop"
+              }}
+            >
+              <Icon className="w-6 h-6 absolute -left-4 bottom-0 animate-glow" />
+            </motion.div>
+          </div>
+        ) : (
+          <Icon className="w-12 h-12 animate-glow" />
+        )}
         <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
       </motion.div>
       <h3 className="text-xl font-semibold mb-3">
