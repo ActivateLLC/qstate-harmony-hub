@@ -8,7 +8,13 @@ interface EnergyIconProps {
 
 const EnergyIcon = ({ Icon, color }: EnergyIconProps) => {
   return (
-    <div className="relative">
+    <motion.div 
+      className="relative"
+      whileHover={{ 
+        rotate: 360,
+        transition: { duration: 1, ease: "easeInOut" }
+      }}
+    >
       <Icon className="w-12 h-12" />
       
       {/* Central energy pulse */}
@@ -69,7 +75,7 @@ const EnergyIcon = ({ Icon, color }: EnergyIconProps) => {
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-qblue/30 to-qpink/30" />
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
