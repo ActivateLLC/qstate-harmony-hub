@@ -51,7 +51,7 @@ const lifeAreas = [
     title: "Communication", 
     icon: MessageSquare, 
     color: "text-qpink",
-    description: "Breakthrough connectivity that brings people closer in magical new ways"
+    description: "Breakthrough connectivity that brings people closer in profound new ways"
   },
   { 
     title: "Energy", 
