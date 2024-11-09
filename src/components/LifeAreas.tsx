@@ -85,7 +85,7 @@ const LifeAreas = () => {
 
   const handleAreaClick = (title: string) => {
     if (title === "Health & Nutrition") {
-      navigate("/health-nutrition");
+      navigate("/health-nutrition-description");
     }
   };
 

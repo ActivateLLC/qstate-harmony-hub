@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HealthNutritionOverview from "./pages/HealthNutritionOverview";
+import HealthNutritionDescription from "./pages/HealthNutritionDescription";
 import { supabase } from "./integrations/supabase/client";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/health-nutrition-description" element={<HealthNutritionDescription />} />
             <Route 
               path="/health-nutrition" 
               element={
