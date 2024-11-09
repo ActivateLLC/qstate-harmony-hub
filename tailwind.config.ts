@@ -13,9 +13,7 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       colors: {
@@ -56,11 +54,6 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -82,7 +75,7 @@ export default {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(100%)" },
         },
-        spin: {
+        "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
@@ -93,7 +86,7 @@ export default {
         float: "float 6s ease-in-out infinite",
         glow: "glow 3s ease-in-out infinite",
         moveY: "moveY 3s linear infinite",
-        spin: "spin 10s linear infinite",
+        "spin-slow": "spin-slow 20s linear infinite",
       },
     },
   },
