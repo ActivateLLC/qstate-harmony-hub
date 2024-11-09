@@ -12,6 +12,18 @@ interface AreaCardProps {
 const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardProps) => {
   const getIconAnimation = (title: string) => {
     switch (title) {
+      case "Healthcare":
+        return {
+          scale: [1, 1.1, 1],
+          opacity: [1, 0.8, 1],
+          transition: {
+            duration: 2,
+            ease: "easeInOut",
+            times: [0, 0.5, 1],
+            repeat: Infinity,
+            repeatType: "mirror" as const
+          }
+        };
       case "Social Connection":
         return {
           x: [0, -20, 0],
@@ -62,7 +74,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           }
         };
       default:
-        return {}; // Return empty object instead of rotation animation
+        return {};
     }
   };
 
@@ -80,7 +92,58 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         className={`${color} mb-6 relative`}
         whileHover={getIconAnimation(title)}
       >
-        {title === "Banking & Finance" ? (
+        {title === "Healthcare" ? (
+          <div className="relative">
+            <Icon className="w-12 h-12" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0.8, 1.2, 1.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="absolute inset-0 border-4 border-qblue rounded-full"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: [0, 0.5, 0],
+                scale: [1, 1.5, 2],
+              }}
+              transition={{
+                duration: 2,
+                delay: 0.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="absolute inset-0 border-2 border-qpink rounded-full"
+            />
+            {[...Array(3)].map((_, index) => (
+              <motion.div
+                key={`pulse-${index}`}
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: [0, 0.3, 0],
+                  y: [-5, -15],
+                  x: [index * 5 - 5, index * 10 - 10],
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: index * 0.3,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className="absolute -top-1 left-1/2"
+              >
+                <div className={`w-1 h-1 rounded-full ${index % 2 === 0 ? 'bg-qblue' : 'bg-qpink'}`} />
+              </motion.div>
+            ))}
+          </div>
+        ) : title === "Banking & Finance" ? (
           <div className="relative">
             <Icon className="w-12 h-12" />
             <motion.div
