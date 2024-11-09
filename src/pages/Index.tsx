@@ -4,6 +4,7 @@ import {
   Shield, MessageSquare, Zap, Tv, Briefcase, Users
 } from "lucide-react";
 import PortfolioOptimizer from "@/components/PortfolioOptimizer";
+import Logo from "@/components/Logo";
 
 const lifeAreas = [
   { 
@@ -83,6 +84,7 @@ const lifeAreas = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-qdark">
+      <Logo />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
