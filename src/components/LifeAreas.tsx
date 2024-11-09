@@ -168,6 +168,23 @@ const LifeAreas = () => {
                           repeatType: "reverse"
                         }
                       }
+                    : area.title === "Housing"
+                    ? {
+                        y: [0, -10, 0],
+                        rotate: [0, 2, 0, -2, 0],
+                        transition: {
+                          y: {
+                            duration: 2,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                          },
+                          rotate: {
+                            duration: 4,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                          }
+                        }
+                      }
                     : { rotate: 180, transition: { duration: 0.8, ease: "easeInOut" }}
                 }
               >
