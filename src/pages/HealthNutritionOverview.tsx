@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Salad, Apple, Utensils, ShoppingCart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import NutritionDashboard from "@/components/nutrition/NutritionDashboard";
 
 const HealthNutritionOverview = () => {
   return (
@@ -22,6 +23,11 @@ const HealthNutritionOverview = () => {
           your perfect wellness journey.
         </p>
       </motion.div>
+
+      {/* Dashboard Section */}
+      <section className="max-w-7xl mx-auto mb-16">
+        <NutritionDashboard />
+      </section>
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
