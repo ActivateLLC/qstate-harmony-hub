@@ -54,8 +54,19 @@ export const SignupForm = () => {
 
         if (profileError) throw profileError;
 
-        toast.success("Account created successfully! Please check your email for confirmation.");
-        navigate("/health-nutrition");
+        // Create initial nutrition preferences
+        const { error: nutritionError } = await supabase
+          .from('nutrition_preferences')
+          .insert([
+            {
+              user_id: data.user?.id,
+            }
+          ]);
+
+        if (nutritionError) throw nutritionError;
+
+        toast.success("Account created successfully!");
+        // The AuthStateHandler in App.tsx will handle the redirection
       }
     } catch (error: any) {
       toast.error(error.message || "An error occurred during signup");
