@@ -74,6 +74,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Summary Section */}
+      <section className="relative py-24 px-4">
+        <div className="container mx-auto max-w-4xl text-center space-y-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink">
+                Magical. Revolutionary. Life-changing.
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              Quantum computing meets everyday essentials. We've reimagined life's fundamentals through 
+              the perfect fusion of quantum intelligence, secure blockchain, and adaptive AI. 
+              Simple yet profound. Innovative yet familiar.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 pt-8">
+              <div className="p-6 glass-card backdrop-blur-xl">
+                <h3 className="text-qblue font-semibold text-lg mb-2">Quantum Precision</h3>
+                <p className="text-gray-300">Delivering life essentials with unprecedented accuracy</p>
+              </div>
+              <div className="p-6 glass-card backdrop-blur-xl">
+                <h3 className="text-qpink font-semibold text-lg mb-2">Blockchain Trust</h3>
+                <p className="text-gray-300">Unbreakable security for your digital existence</p>
+              </div>
+              <div className="p-6 glass-card backdrop-blur-xl">
+                <h3 className="text-qblue font-semibold text-lg mb-2">AI Harmony</h3>
+                <p className="text-gray-300">Adaptive intelligence that understands you</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Portfolio Optimizer Section */}
       <section className="py-20 px-4 relative">
         <div className="container mx-auto">
