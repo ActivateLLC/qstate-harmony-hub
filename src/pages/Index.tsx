@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import PortfolioOptimizer from "@/components/PortfolioOptimizer";
 import Logo from "@/components/Logo";
+import AuthButtons from "@/components/AuthButtons";
 
 const lifeAreas = [
   { 
@@ -85,6 +86,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-qdark">
       <Logo />
+      <AuthButtons />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
