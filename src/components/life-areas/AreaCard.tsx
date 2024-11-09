@@ -21,7 +21,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             ease: "easeInOut",
             times: [0, 0.5, 1],
             repeat: Infinity,
-            repeatType: "mirror"
+            repeatType: "mirror" as const
           }
         };
       case "Transportation":
@@ -32,7 +32,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             duration: 1.2,
             ease: "easeInOut",
             repeat: Infinity,
-            repeatType: "mirror",
+            repeatType: "mirror" as const,
             repeatDelay: 0.5
           }
         };
@@ -45,7 +45,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             ease: "easeInOut",
             times: [0, 0.5, 1],
             repeat: Infinity,
-            repeatType: "mirror"
+            repeatType: "mirror" as const
           }
         };
       case "Health & Nutrition":
@@ -58,7 +58,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             ease: "easeInOut",
             times: [0, 0.5, 1],
             repeat: Infinity,
-            repeatType: "mirror"
+            repeatType: "mirror" as const
           }
         };
       default:
@@ -67,7 +67,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           transition: { 
             duration: 0.8, 
             ease: "easeInOut",
-            repeatType: "mirror"
+            repeatType: "mirror" as const
           } 
         };
     }
@@ -98,7 +98,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                 transition: {
                   duration: 0.3,
                   ease: "easeOut",
-                  repeatType: "mirror"
+                  repeatType: "mirror" as const
                 }
               }}
               className="absolute -right-4 top-0"
@@ -114,7 +114,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   duration: 0.3,
                   delay: 0.15,
                   ease: "easeOut",
-                  repeatType: "mirror"
+                  repeatType: "mirror" as const
                 }
               }}
               className="absolute -left-4 bottom-0"
@@ -136,7 +136,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   duration: 1.2,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
-                  repeatType: "mirror"
+                  repeatType: "mirror" as const
                 }
               }}
               className="absolute -right-4 top-0"
@@ -155,7 +155,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   delay: 0.3,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
-                  repeatType: "mirror"
+                  repeatType: "mirror" as const
                 }
               }}
               className="absolute -right-2 top-0"
@@ -173,7 +173,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   delay: 0.6,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
-                  repeatType: "mirror"
+                  repeatType: "mirror" as const
                 }
               }}
               className="absolute right-0 top-0"
