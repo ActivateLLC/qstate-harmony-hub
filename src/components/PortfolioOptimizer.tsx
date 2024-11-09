@@ -44,7 +44,7 @@ const PortfolioOptimizer = () => {
         Portfolize Portfolio
       </motion.h1>
 
-      <Card className="glass-card p-8">
+      <Card className="glass-card p-8 relative">
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div className="space-y-4">
