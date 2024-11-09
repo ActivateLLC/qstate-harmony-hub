@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, PhoneCall } from "lucide-react";
+import { LucideIcon, PhoneCall, Smartphone } from "lucide-react";
 
 interface AreaCardProps {
   title: string;
@@ -83,6 +83,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         {title === "Banking & Finance" ? (
           <div className="relative">
             <Icon className="w-12 h-12" />
+            <Smartphone className="absolute -right-8 top-1 w-6 h-6 text-qblue" />
             {[...Array(3)].map((_, index) => (
               <motion.div
                 key={`bitcoin-${index}`}
@@ -102,27 +103,6 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                 className="absolute -right-4 top-0"
               >
                 <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qpink' : 'text-qblue'}`}>₿</div>
-              </motion.div>
-            ))}
-            {[...Array(2)].map((_, index) => (
-              <motion.div
-                key={`phone-${index}`}
-                initial={{ opacity: 0, scale: 0, y: 0 }}
-                animate={{ 
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1, 1, 0.5],
-                  y: [-10 * (index + 1), -30 * (index + 1)],
-                  x: [index * 10 - 15, index * 20 - 25]
-                }}
-                transition={{
-                  duration: 2,
-                  delay: index * 0.3,
-                  repeat: Infinity,
-                  repeatType: "loop"
-                }}
-                className="absolute -right-8 top-0"
-              >
-                <PhoneCall className={`w-6 h-6 ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`} />
               </motion.div>
             ))}
             {[...Array(3)].map((_, index) => (
