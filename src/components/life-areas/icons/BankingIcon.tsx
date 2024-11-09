@@ -19,20 +19,15 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
         <motion.div
           key={`bitcoin-${index}`}
           initial={{ opacity: 0, scale: 0.5, y: 0 }}
-          animate={{ 
-            opacity: 0,
-            scale: 0.5,
-            y: 0
-          }}
+          animate={{ opacity: 0 }}
           variants={{
-            hover: {
+            groupHover: {
               opacity: [0, 1, 1, 0],
               scale: [0.5, 1, 1, 0.5],
               y: [-10 * (index + 1), -30 * (index + 1)],
               x: [index * 10 - 10, index * 20 - 20],
             }
           }}
-          whileHover="hover"
           transition={{
             duration: 1.5,
             delay: index * 0.2,
@@ -46,20 +41,15 @@ const BankingIcon = ({ Icon }: BankingIconProps) => {
         <motion.div
           key={`cash-${index}`}
           initial={{ opacity: 0, scale: 0.5, y: 0 }}
-          animate={{ 
-            opacity: 0,
-            scale: 0.5,
-            y: 0
-          }}
+          animate={{ opacity: 0 }}
           variants={{
-            hover: {
+            groupHover: {
               opacity: [0, 1, 1, 0],
               scale: [0.5, 1, 1, 0.5],
               y: [-5 * (index + 1), -25 * (index + 1)],
               x: [-index * 10 - 5, -index * 20 - 10],
             }
           }}
-          whileHover="hover"
           transition={{
             duration: 1.8,
             delay: index * 0.3,
