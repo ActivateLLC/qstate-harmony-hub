@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import HealthcareIcon from "./icons/HealthcareIcon";
 import BankingIcon from "./icons/BankingIcon";
+import EducationIcon from "./icons/EducationIcon";
 
 interface AreaCardProps {
   title: string;
@@ -63,6 +64,17 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             repeatType: "mirror" as const
           }
         };
+      case "Education":
+        return {
+          rotate: [-5, 5],
+          y: [0, -5],
+          transition: {
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror" as const
+          }
+        };
       default:
         return {};
     }
@@ -86,6 +98,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           <HealthcareIcon Icon={Icon} color={color} />
         ) : title === "Banking & Finance" ? (
           <BankingIcon Icon={Icon} />
+        ) : title === "Education" ? (
+          <EducationIcon Icon={Icon} color={color} />
         ) : (
           <Icon className="w-12 h-12" />
         )}
