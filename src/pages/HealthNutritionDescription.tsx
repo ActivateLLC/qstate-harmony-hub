@@ -102,78 +102,126 @@ const HealthNutritionDescription = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
-          <div className="glass-card p-8 space-y-6">
-            <div className="h-64 relative overflow-hidden rounded-xl">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="glass-card p-8 space-y-6"
+          >
+            <h2 className="text-2xl font-bold text-qblue flex items-center gap-2">
+              <Brain className="w-6 h-6" /> Meal Planning & Tracking
+            </h2>
+            <ul className="space-y-4 text-gray-300">
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qblue mt-1 flex-shrink-0" />
+                Daily meal scheduler with smart suggestions
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qblue mt-1 flex-shrink-0" />
+                Calorie and macro tracking with real-time insights
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qblue mt-1 flex-shrink-0" />
+                AI-powered recipe suggestions based on preferences
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qblue mt-1 flex-shrink-0" />
+                Automated shopping list generation
+              </li>
+            </ul>
+            <div className="h-48 relative overflow-hidden rounded-xl">
               <RiveComponent className="w-full h-full" />
             </div>
-            <h2 className="text-2xl font-bold text-qblue">AI-Powered Analysis</h2>
-            <p className="text-gray-300">
-              Our quantum algorithms analyze millions of data points to create your perfect nutrition plan,
-              adapting in real-time to your changing needs and preferences.
-            </p>
-          </div>
+          </motion.div>
 
-          <div className="glass-card p-8 space-y-6">
-            <div className="h-64 relative overflow-hidden rounded-xl">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+            className="glass-card p-8 space-y-6"
+          >
+            <h2 className="text-2xl font-bold text-qpink flex items-center gap-2">
+              <Heart className="w-6 h-6" /> Progress Tracking
+            </h2>
+            <ul className="space-y-4 text-gray-300">
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qpink mt-1 flex-shrink-0" />
+                Comprehensive body measurements tracking
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qpink mt-1 flex-shrink-0" />
+                Secure before/after photo storage
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qpink mt-1 flex-shrink-0" />
+                Goal setting with milestone tracking
+              </li>
+              <li className="flex items-start gap-2">
+                <ArrowRight className="w-5 h-5 text-qpink mt-1 flex-shrink-0" />
+                Gamified achievement system with rewards
+              </li>
+            </ul>
+            <div className="h-48 relative overflow-hidden rounded-xl">
               <Lottie animationData={healthAnimation} loop={true} />
             </div>
-            <h2 className="text-2xl font-bold text-qpink">Real-time Tracking</h2>
-            <p className="text-gray-300">
-              Monitor your progress with advanced visualization tools and get instant feedback
-              on your nutrition choices.
-            </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="glass-card p-8 mb-20">
-          <h2 className="text-2xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink">
-            Quantum DNA Analysis
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="glass-card p-8 mb-20"
+        >
+          <h2 className="text-2xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+            <Leaf className="w-6 h-6 text-qblue" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink">
+              Smart Recommendations
+            </span>
           </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-2 text-qblue">AI-Powered Insights</h3>
+              <p className="text-gray-300">Personalized meal suggestions based on your preferences and goals</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-2 text-qpink">Supplement Guide</h3>
+              <p className="text-gray-300">Custom supplement recommendations for optimal nutrition</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-2 text-qblue">Wellness Integration</h3>
+              <p className="text-gray-300">Hydration reminders and exercise nutrition planning</p>
+            </div>
+          </div>
           <div className="flex justify-center">
             <svg ref={d3Container} className="w-full max-w-lg" />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {[
-            {
-              icon: Brain,
-              title: "Cognitive Enhancement",
-              description: "Optimize your mental performance through targeted nutrition strategies."
-            },
-            {
-              icon: Heart,
-              title: "Holistic Wellness",
-              description: "Balance your physical and mental well-being with personalized recommendations."
-            },
-            {
-              icon: Leaf,
-              title: "Sustainable Health",
-              description: "Build lasting healthy habits with our adaptive guidance system."
-            }
-          ].map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="glass-card p-6 text-center"
-            >
-              <feature.icon className="w-12 h-12 mx-auto mb-4 text-qblue" />
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Button
-            onClick={() => navigate('/health-nutrition')}
-            className="bg-gradient-to-r from-qblue to-qpink hover:opacity-90 text-white px-8 py-4 rounded-full text-lg font-bold group"
+        <div className="text-center space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
           >
-            Access Dashboard
-            <ArrowRight className="ml-2 inline-block group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Nutrition?</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join us and experience the future of personalized nutrition planning.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <Button
+              onClick={() => navigate('/login')}
+              className="bg-gradient-to-r from-qblue to-qpink hover:opacity-90 text-white px-8 py-6 rounded-full text-lg font-bold group"
+            >
+              Get Started Now
+              <ArrowRight className="ml-2 inline-block group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
         </div>
       </div>
     </div>
