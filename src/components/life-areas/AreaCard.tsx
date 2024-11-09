@@ -89,45 +89,43 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
       >
         {title === "Banking & Finance" ? (
           <div className="relative">
-            <Icon className="w-12 h-12 animate-glow" />
-            {/* Bitcoin Animations */}
+            <Icon className="w-12 h-12" />
             {[...Array(3)].map((_, index) => (
               <motion.div
                 key={`bitcoin-${index}`}
                 initial={{ opacity: 0, scale: 0, y: 0 }}
-                whileHover={{ 
+                animate={{ 
                   opacity: [0, 1, 1, 0],
                   scale: [0.5, 1, 1, 0.5],
                   y: [-10 * (index + 1), -30 * (index + 1)],
-                  x: [index * 10 - 10, index * 20 - 20],
-                  transition: {
-                    duration: 1.5,
-                    delay: index * 0.2,
-                    repeat: Infinity,
-                    repeatType: "loop"
-                  }
+                  x: [index * 10 - 10, index * 20 - 20]
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: index * 0.2,
+                  repeat: Infinity,
+                  repeatType: "loop"
                 }}
                 className="absolute -right-4 top-0"
               >
                 <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qpink' : 'text-qblue'}`}>₿</div>
               </motion.div>
             ))}
-            {/* Cash Animations */}
             {[...Array(3)].map((_, index) => (
               <motion.div
                 key={`cash-${index}`}
                 initial={{ opacity: 0, scale: 0, y: 0 }}
-                whileHover={{ 
+                animate={{ 
                   opacity: [0, 1, 1, 0],
                   scale: [0.5, 1, 1, 0.5],
                   y: [-5 * (index + 1), -25 * (index + 1)],
-                  x: [-index * 10 - 5, -index * 20 - 10],
-                  transition: {
-                    duration: 1.8,
-                    delay: index * 0.3,
-                    repeat: Infinity,
-                    repeatType: "loop"
-                  }
+                  x: [-index * 10 - 5, -index * 20 - 10]
+                }}
+                transition={{
+                  duration: 1.8,
+                  delay: index * 0.3,
+                  repeat: Infinity,
+                  repeatType: "loop"
                 }}
                 className="absolute -left-4 top-0"
               >
@@ -135,43 +133,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
               </motion.div>
             ))}
           </div>
-        ) : title === "Housing" ? (
-          <div className="relative">
-            <Icon className="w-12 h-12 animate-glow" />
-            <motion.div
-              initial={{ opacity: 0, scale: 0, x: 10, y: 5 }}
-              whileHover={{ 
-                opacity: 1, 
-                scale: 0.8,
-                transition: {
-                  duration: 0.3,
-                  ease: "easeOut",
-                  repeatType: "mirror" as const
-                }
-              }}
-              className="absolute -right-4 top-0"
-            >
-              <Icon className="w-8 h-8 animate-glow" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0, x: -10, y: 8 }}
-              whileHover={{ 
-                opacity: 1, 
-                scale: 0.6,
-                transition: {
-                  duration: 0.3,
-                  delay: 0.15,
-                  ease: "easeOut",
-                  repeatType: "mirror" as const
-                }
-              }}
-              className="absolute -left-4 bottom-0"
-            >
-              <Icon className="w-6 h-6 animate-glow" />
-            </motion.div>
-          </div>
         ) : (
-          <Icon className="w-12 h-12 animate-glow" />
+          <Icon className="w-12 h-12" />
         )}
         <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
       </motion.div>
