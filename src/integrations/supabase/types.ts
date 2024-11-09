@@ -38,6 +38,50 @@ export type Database = {
           },
         ]
       }
+      nutrition_preferences: {
+        Row: {
+          created_at: string
+          dietary_trend: string | null
+          id: string
+          mineral_level: number
+          protein_level: number
+          superfood_level: number
+          updated_at: string
+          user_id: string
+          vitamin_level: number
+        }
+        Insert: {
+          created_at?: string
+          dietary_trend?: string | null
+          id?: string
+          mineral_level?: number
+          protein_level?: number
+          superfood_level?: number
+          updated_at?: string
+          user_id: string
+          vitamin_level?: number
+        }
+        Update: {
+          created_at?: string
+          dietary_trend?: string | null
+          id?: string
+          mineral_level?: number
+          protein_level?: number
+          superfood_level?: number
+          updated_at?: string
+          user_id?: string
+          vitamin_level?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "nutrition_preferences_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
