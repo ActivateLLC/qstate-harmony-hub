@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { LogIn, UserPlus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const AuthButtons = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: -20 }}
@@ -10,6 +13,7 @@ const AuthButtons = () => {
     >
       {/* Login Button */}
       <motion.button
+        onClick={() => navigate("/login")}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="glass-card px-6 py-2 flex items-center gap-2 group relative overflow-hidden"
