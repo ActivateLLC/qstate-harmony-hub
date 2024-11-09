@@ -28,6 +28,30 @@ const HealthNutritionDescription = () => {
     ],
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 15
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-qdark text-white">
       <div className="absolute inset-0">
@@ -51,25 +75,34 @@ const HealthNutritionDescription = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
-          <AnimatedFeatureCard
-            title="Meal Planning & Tracking"
-            icon={Brain}
-            items={features.mealPlanning}
-            iconColor="text-qblue"
-          />
-          <AnimatedFeatureCard
-            title="Progress Tracking"
-            icon={HeartPulse}
-            items={features.progressTracking}
-            iconColor="text-qpink"
-          />
-        </div>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20"
+        >
+          <motion.div variants={itemVariants}>
+            <AnimatedFeatureCard
+              title="Meal Planning & Tracking"
+              icon={Brain}
+              items={features.mealPlanning}
+              iconColor="text-qblue"
+            />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <AnimatedFeatureCard
+              title="Progress Tracking"
+              icon={HeartPulse}
+              items={features.progressTracking}
+              iconColor="text-qpink"
+            />
+          </motion.div>
+        </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="glass-card p-8 mb-20"
         >
           <h2 className="text-2xl font-bold text-center mb-8 flex items-center justify-center gap-2">
@@ -82,9 +115,7 @@ const HealthNutritionDescription = () => {
             {features.smartRecommendations.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
+                variants={itemVariants}
                 className="text-center"
               >
                 <p className="text-gray-300">{feature}</p>
