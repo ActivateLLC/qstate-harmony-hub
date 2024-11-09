@@ -46,18 +46,6 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             repeatType: "mirror"
           }
         };
-      case "Housing":
-        return {
-          scale: [1, 1, 1, 1],
-          y: [0, -5, -5, 0],
-          rotate: [0, 0, 0, 0],
-          transition: {
-            duration: 3,
-            times: [0, 0.3, 0.7, 1],
-            repeat: Infinity,
-            repeatType: "loop"
-          }
-        };
       case "Health & Nutrition":
         return {
           y: [0, -8, 0],
@@ -100,28 +88,33 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           <div className="relative">
             <Icon className="w-12 h-12 animate-glow" />
             <motion.div
-              initial={{ opacity: 0, scale: 0.5, x: 10, y: 5 }}
-              animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 0.5], x: [10, 10, 10, 10], y: [5, 5, 5, 5] }}
-              transition={{
-                duration: 3,
-                times: [0, 0.3, 0.7, 1],
-                repeat: Infinity,
-                repeatType: "loop"
+              initial={{ opacity: 0, scale: 0, x: 10, y: 5 }}
+              whileHover={{ 
+                opacity: 1, 
+                scale: 0.8,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut"
+                }
               }}
+              className="absolute -right-4 top-0"
             >
-              <Icon className="w-8 h-8 absolute -right-4 top-0 animate-glow" />
+              <Icon className="w-8 h-8 animate-glow" />
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.5, x: -10, y: 8 }}
-              animate={{ opacity: [0, 0, 1, 0], scale: [0.5, 0.5, 1, 0.5], x: [-10, -10, -10, -10], y: [8, 8, 8, 8] }}
-              transition={{
-                duration: 3,
-                times: [0, 0.3, 0.7, 1],
-                repeat: Infinity,
-                repeatType: "loop"
+              initial={{ opacity: 0, scale: 0, x: -10, y: 8 }}
+              whileHover={{ 
+                opacity: 1, 
+                scale: 0.6,
+                transition: {
+                  duration: 0.3,
+                  delay: 0.15,
+                  ease: "easeOut"
+                }
               }}
+              className="absolute -left-4 bottom-0"
             >
-              <Icon className="w-6 h-6 absolute -left-4 bottom-0 animate-glow" />
+              <Icon className="w-6 h-6 animate-glow" />
             </motion.div>
           </div>
         ) : (
