@@ -54,7 +54,7 @@ export const SignupForm = () => {
 
         if (profileError) throw profileError;
 
-        toast.success("Account created successfully!");
+        toast.success("Account created successfully! Please check your email for confirmation.");
         navigate("/health-nutrition");
       }
     } catch (error: any) {
