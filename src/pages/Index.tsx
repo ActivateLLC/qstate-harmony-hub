@@ -139,6 +139,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Portfolio Optimizer Section */}
+      <section className="py-20 px-4 relative">
+        <div className="container mx-auto">
+          <PortfolioOptimizer />
+        </div>
+      </section>
+
       {/* Life Areas Grid */}
       <section className="py-20 px-4 relative">
         <div className="absolute inset-0">
