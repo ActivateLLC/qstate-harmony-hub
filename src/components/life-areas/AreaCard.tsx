@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { LucideIcon, Smartphone } from "lucide-react";
+import { LucideIcon } from "lucide-react";
+import HealthcareIcon from "./icons/HealthcareIcon";
+import BankingIcon from "./icons/BankingIcon";
 
 interface AreaCardProps {
   title: string;
@@ -12,18 +14,6 @@ interface AreaCardProps {
 const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardProps) => {
   const getIconAnimation = (title: string) => {
     switch (title) {
-      case "Healthcare":
-        return {
-          scale: [1, 1.1, 1],
-          opacity: [1, 0.8, 1],
-          transition: {
-            duration: 2,
-            ease: "easeInOut",
-            times: [0, 0.5, 1],
-            repeat: Infinity,
-            repeatType: "mirror" as const
-          }
-        };
       case "Social Connection":
         return {
           x: [0, -20, 0],
@@ -93,108 +83,9 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         whileHover={getIconAnimation(title)}
       >
         {title === "Healthcare" ? (
-          <div className="relative">
-            <Icon className="w-12 h-12" />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0.8, 1.2, 1.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="absolute inset-0 border-4 border-qblue rounded-full"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: [0, 0.5, 0],
-                scale: [1, 1.5, 2],
-              }}
-              transition={{
-                duration: 2,
-                delay: 0.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="absolute inset-0 border-2 border-qpink rounded-full"
-            />
-            {[...Array(3)].map((_, index) => (
-              <motion.div
-                key={`pulse-${index}`}
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: [0, 0.3, 0],
-                  y: [-5, -15],
-                  x: [index * 5 - 5, index * 10 - 10],
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: index * 0.3,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className="absolute -top-1 left-1/2"
-              >
-                <div className={`w-1 h-1 rounded-full ${index % 2 === 0 ? 'bg-qblue' : 'bg-qpink'}`} />
-              </motion.div>
-            ))}
-          </div>
+          <HealthcareIcon Icon={Icon} color={color} />
         ) : title === "Banking & Finance" ? (
-          <div className="relative">
-            <Icon className="w-12 h-12" />
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="absolute -right-6 top-3"
-            >
-              <Smartphone className="w-8 h-8 text-qblue transition-colors duration-300 group-hover:text-qpink" />
-            </motion.div>
-            {[...Array(3)].map((_, index) => (
-              <motion.div
-                key={`bitcoin-${index}`}
-                initial={{ opacity: 0, scale: 0, y: 0 }}
-                animate={{ 
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1, 1, 0.5],
-                  y: [-10 * (index + 1), -30 * (index + 1)],
-                  x: [index * 10 - 10, index * 20 - 20]
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: index * 0.2,
-                  repeat: Infinity,
-                  repeatType: "loop"
-                }}
-                className="absolute -right-4 top-0"
-              >
-                <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qpink' : 'text-qblue'}`}>₿</div>
-              </motion.div>
-            ))}
-            {[...Array(3)].map((_, index) => (
-              <motion.div
-                key={`cash-${index}`}
-                initial={{ opacity: 0, scale: 0, y: 0 }}
-                animate={{ 
-                  opacity: [0, 1, 1, 0],
-                  scale: [0.5, 1, 1, 0.5],
-                  y: [-5 * (index + 1), -25 * (index + 1)],
-                  x: [-index * 10 - 5, -index * 20 - 10]
-                }}
-                transition={{
-                  duration: 1.8,
-                  delay: index * 0.3,
-                  repeat: Infinity,
-                  repeatType: "loop"
-                }}
-                className="absolute -left-4 top-0"
-              >
-                <div className={`text-lg font-bold ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`}>$</div>
-              </motion.div>
-            ))}
-          </div>
+          <BankingIcon Icon={Icon} />
         ) : (
           <Icon className="w-12 h-12" />
         )}
