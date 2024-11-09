@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Heart, Brain, Moon, Zap } from "lucide-react";
 import { WelcomeSection } from "./WelcomeSection";
 import { DietaryTrendCard } from "./DietaryTrendCard";
@@ -56,38 +57,91 @@ const NutritionDashboard: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-8 relative">
+      {/* Background gradient elements */}
+      <div className="fixed inset-0 bg-qdark overflow-hidden pointer-events-none">
+        <div className="absolute w-1/2 h-1/2 bg-qblue/5 rounded-full blur-[100px] animate-float top-0 left-0" />
+        <div className="absolute w-1/2 h-1/2 bg-qpink/5 rounded-full blur-[100px] animate-float delay-1000 bottom-0 right-0" />
+      </div>
+
       <WelcomeSection
         currentGoalIndex={currentGoalIndex}
         wellnessGoals={wellnessGoals}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <DietaryTrendCard
-          selectedTrend={selectedTrend}
-          setSelectedTrend={setSelectedTrend}
-          staticDietaryTrends={staticDietaryTrends}
-        />
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
+      >
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <DietaryTrendCard
+            selectedTrend={selectedTrend}
+            setSelectedTrend={setSelectedTrend}
+            staticDietaryTrends={staticDietaryTrends}
+          />
+        </motion.div>
 
-        <NutritionPreferencesCard
-          proteinPreference={proteinPreference}
-          setProteinPreference={setProteinPreference}
-          vitaminPreference={vitaminPreference}
-          setVitaminPreference={setVitaminPreference}
-          mineralPreference={mineralPreference}
-          setMineralPreference={setMineralPreference}
-          superfoodPreference={superfoodPreference}
-          setSuperfoodPreference={setSuperfoodPreference}
-        />
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <NutritionPreferencesCard
+            proteinPreference={proteinPreference}
+            setProteinPreference={setProteinPreference}
+            vitaminPreference={vitaminPreference}
+            setVitaminPreference={setVitaminPreference}
+            mineralPreference={mineralPreference}
+            setMineralPreference={setMineralPreference}
+            superfoodPreference={superfoodPreference}
+            setSuperfoodPreference={setSuperfoodPreference}
+          />
+        </motion.div>
 
-        <MealPlanningCard />
-        <ProgressTrackingCard />
-        <SmartRecommendationsCard />
-        <QuickActionsCard />
-      </div>
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <MealPlanningCard />
+        </motion.div>
 
-      <HealthTrajectoryCharts />
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <ProgressTrackingCard />
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <SmartRecommendationsCard />
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="hover:scale-[1.02] transition-transform">
+          <QuickActionsCard />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+      >
+        <HealthTrajectoryCharts />
+      </motion.div>
     </div>
   );
 };
