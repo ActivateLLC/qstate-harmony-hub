@@ -3,6 +3,7 @@ import {
   Stethoscope, Wallet, Salad, GraduationCap, Home, Car, 
   Shield, MessageSquare, Zap, Tv, Briefcase, Users
 } from "lucide-react";
+import PortfolioOptimizer from "@/components/PortfolioOptimizer";
 
 const lifeAreas = [
   { 
