@@ -1,17 +1,39 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, User, Facebook, Apple, Fingerprint, Scan } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      toast.success("Logged in successfully!");
+      navigate("/health-nutrition");
+    } catch (error: any) {
+      toast.error(error.message || "Failed to login");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-qdark flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Enhanced grid background with glowing lines */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#232323_1px,transparent_1px),linear-gradient(to_bottom,#232323_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-qblue/5 to-transparent animate-pulse" />
       </div>
 
-      {/* Floating light effects */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <div
@@ -33,13 +55,11 @@ const Login = () => {
         <ArrowLeft className="w-6 h-6 text-white group-hover:text-qblue transition-colors" />
       </Link>
 
-      {/* Main login card */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="glass-card w-full max-w-md p-8 space-y-8 relative"
       >
-        {/* Enhanced glow effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-qblue/20 to-qpink/20 blur-xl opacity-50" />
         <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
         <div className="absolute inset-0 border border-white/10 rounded-xl" />
@@ -56,24 +76,29 @@ const Login = () => {
             </h1>
           </div>
 
-          <form className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
               <input 
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-qblue focus:ring-1 focus:ring-qblue/50 placeholder:text-white/30 transition-all"
-                placeholder="USERNAME"
+                placeholder="EMAIL"
+                required
               />
             </div>
 
             <div className="space-y-2">
               <input 
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-qblue focus:ring-1 focus:ring-qblue/50 placeholder:text-white/30 transition-all"
                 placeholder="PASSWORD"
+                required
               />
             </div>
 
-            {/* Biometric and Facial Recognition buttons */}
             <div className="grid grid-cols-2 gap-4">
               <button 
                 type="button"
