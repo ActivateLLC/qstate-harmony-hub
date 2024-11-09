@@ -6,6 +6,7 @@ import EducationIcon from "./icons/EducationIcon";
 import SecurityIcon from "./icons/SecurityIcon";
 import EnergyIcon from "./icons/EnergyIcon";
 import EntertainmentIcon from "./icons/EntertainmentIcon";
+import WorkCareerIcon from "./icons/WorkCareerIcon";
 
 interface AreaCardProps {
   title: string;
@@ -119,6 +120,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           <EnergyIcon Icon={Icon} color={color} />
         ) : title === "Entertainment" ? (
           <EntertainmentIcon Icon={Icon} color={color} />
+        ) : title === "Work & Career" ? (
+          <WorkCareerIcon Icon={Icon} color={color} />
         ) : (
           <Icon className="w-12 h-12" />
         )}
