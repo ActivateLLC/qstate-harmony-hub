@@ -142,7 +142,7 @@ const HealthNutritionDescription = () => {
             transition={{ delay: 1 }}
           >
             <Button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/health-nutrition")}
               className="bg-gradient-to-r from-qblue to-qpink hover:opacity-90 text-white px-8 py-6 rounded-full text-lg font-bold group"
             >
               Get Started Now
