@@ -1,84 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { 
-  Stethoscope, Wallet, Salad, GraduationCap, Home, Car, 
-  Shield, MessageSquare, Zap, Tv, Briefcase, Users
-} from "lucide-react";
-
-const lifeAreas = [
-  { 
-    title: "Healthcare", 
-    icon: Stethoscope, 
-    color: "text-qblue",
-    description: "Revolutionary quantum-powered health monitoring that adapts to your unique wellness journey"
-  },
-  { 
-    title: "Banking & Finance", 
-    icon: Wallet, 
-    color: "text-qpink",
-    description: "Seamlessly integrated financial solutions that transform how you interact with wealth"
-  },
-  { 
-    title: "Health & Nutrition", 
-    icon: Salad, 
-    color: "text-qblue",
-    description: "Personalized nutrition intelligence that elevates your daily wellness experience"
-  },
-  { 
-    title: "Education", 
-    icon: GraduationCap, 
-    color: "text-qpink",
-    description: "Immersive learning experiences that unlock your full potential"
-  },
-  { 
-    title: "Housing", 
-    icon: Home, 
-    color: "text-qblue",
-    description: "Intelligent living spaces that respond intuitively to your lifestyle"
-  },
-  { 
-    title: "Transportation", 
-    icon: Car, 
-    color: "text-qpink",
-    description: "Effortless mobility solutions that redefine your journey experience"
-  },
-  { 
-    title: "Security", 
-    icon: Shield, 
-    color: "text-qblue",
-    description: "Advanced protection systems that seamlessly safeguard your digital life"
-  },
-  { 
-    title: "Communication", 
-    icon: MessageSquare, 
-    color: "text-qpink",
-    description: "Breakthrough connectivity that brings people closer in profound new ways"
-  },
-  { 
-    title: "Energy", 
-    icon: Zap, 
-    color: "text-qblue",
-    description: "Sustainable power solutions that harmoniously energize your world"
-  },
-  { 
-    title: "Entertainment", 
-    icon: Tv, 
-    color: "text-qpink",
-    description: "Extraordinary experiences that transport you to new realms of delight"
-  },
-  { 
-    title: "Work & Career", 
-    icon: Briefcase, 
-    color: "text-qblue",
-    description: "Innovative workspace solutions that elevate your professional journey"
-  },
-  { 
-    title: "Social Connection", 
-    icon: Users, 
-    color: "text-qpink",
-    description: "Meaningful interactions that create lasting bonds in remarkable ways"
-  }
-];
+import AreaCard from "./life-areas/AreaCard";
+import { lifeAreas } from "./life-areas/areaData";
 
 const LifeAreas = () => {
   const navigate = useNavigate();
@@ -123,81 +46,14 @@ const LifeAreas = () => {
                 delay: index * 0.1,
                 ease: "easeOut"
               }}
-              whileHover={{ 
-                scale: 1.03,
-                transition: { duration: 0.3 }
-              }}
-              className="glass-card p-8 hover:scale-105 transition-transform duration-300 relative group cursor-pointer"
-              onClick={() => handleAreaClick(area.title)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-qblue/10 to-qpink/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
-              <motion.div 
-                className={`${area.color} mb-6 relative`}
-                whileHover={
-                  area.title === "Social Connection" 
-                    ? {
-                        x: [0, -20, 0],
-                        scale: [1, 1.2, 1],
-                        transition: {
-                          duration: 1,
-                          ease: "easeInOut",
-                          times: [0, 0.5, 1],
-                          repeat: Infinity
-                        }
-                      }
-                    : area.title === "Transportation"
-                    ? {
-                        x: [0, 100],
-                        scale: [1, 0.8],
-                        transition: {
-                          duration: 1.2,
-                          ease: "easeInOut",
-                          repeat: Infinity,
-                          repeatDelay: 0.5
-                        }
-                      }
-                    : area.title === "Communication"
-                    ? {
-                        scale: [1, 1.2, 1],
-                        opacity: [1, 0.5, 1],
-                        transition: {
-                          duration: 1.5,
-                          ease: "easeInOut",
-                          times: [0, 0.5, 1],
-                          repeat: Infinity,
-                          repeatType: "reverse"
-                        }
-                      }
-                    : area.title === "Housing"
-                    ? {
-                        y: [0, -10, 0],
-                        rotate: [0, 2, 0, -2, 0],
-                        transition: {
-                          y: {
-                            duration: 2,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                          },
-                          rotate: {
-                            duration: 4,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                          }
-                        }
-                      }
-                    : { rotate: 180, transition: { duration: 0.8, ease: "easeInOut" }}
-                }
-              >
-                <area.icon className="w-12 h-12 animate-glow" />
-                <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
-              </motion.div>
-              <h3 className="text-xl font-semibold mb-3">
-                {area.title}
-              </h3>
-              <p className="text-gray-400">
-                {area.description}
-              </p>
-              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <AreaCard
+                title={area.title}
+                description={area.description}
+                icon={area.icon}
+                color={area.color}
+                onClick={() => handleAreaClick(area.title)}
+              />
             </motion.div>
           ))}
         </div>
