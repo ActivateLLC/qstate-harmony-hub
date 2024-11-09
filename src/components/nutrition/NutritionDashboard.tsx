@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dna, Gauge, ShoppingCart, Salad } from "lucide-react";
 
-interface DietaryTrend {
-  id: string;
-  name: string;
-  description: string;
-  created_at: string;
-}
+// Temporary static data until the database is set up
+const staticDietaryTrends = [
+  {
+    id: "1",
+    name: "Ketogenic",
+    description: "High-fat, low-carb diet that aims to put your body in ketosis"
+  },
+  {
+    id: "2",
+    name: "Mediterranean",
+    description: "Plant-based diet rich in healthy fats, whole grains, and lean proteins"
+  },
+  {
+    id: "3",
+    name: "Plant-Based",
+    description: "Diet focused on foods derived from plant sources"
+  },
+  {
+    id: "4",
+    name: "Paleo",
+    description: "Diet based on foods similar to what might have been eaten during the Paleolithic era"
+  }
+];
 
 const NutritionDashboard = () => {
   const [selectedTrend, setSelectedTrend] = useState<string>("");
@@ -20,17 +35,6 @@ const NutritionDashboard = () => {
   const [vitaminPreference, setVitaminPreference] = useState([50]);
   const [mineralPreference, setMineralPreference] = useState([50]);
   const [superfoodPreference, setSuperfoodPreference] = useState([50]);
-
-  const { data: dietaryTrends, isLoading } = useQuery<DietaryTrend[]>({
-    queryKey: ['dietaryTrends'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('dietary_trends')
-        .select('*');
-      if (error) throw error;
-      return data as DietaryTrend[];
-    }
-  });
 
   return (
     <div className="w-full space-y-8">
@@ -64,15 +68,11 @@ const NutritionDashboard = () => {
                 <SelectValue placeholder="Select your dietary preference" />
               </SelectTrigger>
               <SelectContent>
-                {isLoading ? (
-                  <SelectItem value="loading" disabled>Loading...</SelectItem>
-                ) : (
-                  dietaryTrends?.map((trend) => (
-                    <SelectItem key={trend.id} value={trend.id}>
-                      {trend.name}
-                    </SelectItem>
-                  ))
-                )}
+                {staticDietaryTrends.map((trend) => (
+                  <SelectItem key={trend.id} value={trend.id}>
+                    {trend.name}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </CardContent>
