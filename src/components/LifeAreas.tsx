@@ -96,27 +96,53 @@ const LifeAreas = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,0,160,0.1)_0%,transparent_50%)]" />
       </div>
       <div className="container mx-auto relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-center mb-16"
+        >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-glow">
             Essential Systems
           </span>
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {lifeAreas.map((area, index) => (
             <motion.div
               key={area.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 0.5,
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 50
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
               className="glass-card p-8 hover:scale-105 transition-transform duration-300 relative group cursor-pointer"
               onClick={() => handleAreaClick(area.title)}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-qblue/10 to-qpink/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
-              <div className={`${area.color} mb-6 relative`}>
+              <motion.div 
+                className={`${area.color} mb-6 relative`}
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
                 <area.icon className="w-12 h-12 animate-glow" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{area.title}</h3>
+              </motion.div>
+              <motion.h3 
+                className="text-xl font-semibold mb-3"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                {area.title}
+              </motion.h3>
               <p className="text-gray-400">
                 {area.description}
               </p>
