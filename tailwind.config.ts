@@ -79,6 +79,11 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        money: {
+          "0%": { opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -87,6 +92,7 @@ export default {
         glow: "glow 3s ease-in-out infinite",
         moveY: "moveY 3s linear infinite",
         "spin-slow": "spin-slow 20s linear infinite",
+        money: "money 1.5s ease-in-out infinite",
       },
     },
   },
