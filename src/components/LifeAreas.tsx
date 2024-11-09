@@ -145,6 +145,17 @@ const LifeAreas = () => {
                           repeat: Infinity
                         }
                       }
+                    : area.title === "Transportation"
+                    ? {
+                        x: [0, 100],
+                        scale: [1, 0.8],
+                        transition: {
+                          duration: 1.2,
+                          ease: "easeInOut",
+                          repeat: Infinity,
+                          repeatDelay: 0.5
+                        }
+                      }
                     : { rotate: 180, transition: { duration: 0.8, ease: "easeInOut" }}
                 }
               >
