@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, Phone } from "lucide-react";
+import { LucideIcon, PhoneCall } from "lucide-react";
 
 interface AreaCardProps {
   title: string;
@@ -111,8 +111,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                 animate={{ 
                   opacity: [0, 1, 1, 0],
                   scale: [0.5, 1, 1, 0.5],
-                  y: [-10 * (index + 1), -25 * (index + 1)],
-                  x: [index * 15 + 20, index * 25 + 30]
+                  y: [-10 * (index + 1), -30 * (index + 1)],
+                  x: [index * 10 - 15, index * 20 - 25]
                 }}
                 transition={{
                   duration: 2,
@@ -120,9 +120,9 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   repeat: Infinity,
                   repeatType: "loop"
                 }}
-                className="absolute left-0 top-0"
+                className="absolute -right-8 top-0"
               >
-                <Phone className={`w-6 h-6 ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`} />
+                <PhoneCall className={`w-6 h-6 ${index % 2 === 0 ? 'text-qblue' : 'text-qpink'}`} />
               </motion.div>
             ))}
             {[...Array(3)].map((_, index) => (
