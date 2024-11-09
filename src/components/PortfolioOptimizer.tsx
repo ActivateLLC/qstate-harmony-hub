@@ -112,7 +112,7 @@ const PortfolioOptimizer = () => {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center glass-card bg-gradient-to-r from-qblue/20 to-qpink/20 border-t-2 border-qblue/50 backdrop-blur-xl">
                   <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-pulse glow-text">
-                    Subscribe to Unlock Full Analysis & Connect Broker
+                    Unlock Pro Features & Broker Integration
                   </span>
                 </div>
               </div>
