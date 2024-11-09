@@ -4,13 +4,22 @@
 
 **URL**: https://run.gptengineer.app/projects/47adcfbb-fbd2-469a-8913-bf6f78602cc3/improve
 
-## Python Integration
+## Python & D-Wave Integration
 
-This project supports running Python scripts from Node.js using python-shell. To use this feature:
+This project supports running Python scripts from Node.js using python-shell, including D-Wave quantum computing operations. To use this feature:
 
 1. Ensure Python 3.x is installed on your system
-2. Place your Python scripts in the `python_scripts` directory
-3. Use the `runPythonScript` utility function to execute Python code
+2. Install the required Python packages:
+   ```bash
+   cd python_scripts
+   pip install -r requirements.txt
+   ```
+3. Set up your D-Wave credentials:
+   - Sign up for a D-Wave Leap account at https://cloud.dwavesys.com/leap/
+   - Install and configure your D-Wave API token following their documentation
+4. Place your Python scripts in the `python_scripts` directory
+5. Use the `runPythonScript` utility function to execute Python code
+6. For quantum operations, use the `solveQuantumProblem` function from `quantumOperations.ts`
 
 ## How can I edit this code?
 
@@ -78,4 +87,3 @@ Simply visit your project at [GPT Engineer](https://gptengineer.app/projects/47a
 ## I want to use a custom domain - is that possible?
 
 We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.gptengineer.app/tips-tricks/custom-domain/)
-
