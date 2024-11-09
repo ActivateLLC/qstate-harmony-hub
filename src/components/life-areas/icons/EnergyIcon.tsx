@@ -70,22 +70,6 @@ const EnergyIcon = ({ Icon, color }: EnergyIconProps) => {
           }}
         />
       ))}
-
-      {/* Lightning effect */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: [0, 0.7, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          repeat: Infinity,
-          repeatDelay: 0.8,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-tr from-qblue/30 to-qpink/30" />
-      </motion.div>
     </motion.div>
   );
 };
