@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, CheckCircle2 } from "lucide-react";
 
 interface AnimatedFeatureCardProps {
   title: string;
@@ -27,9 +27,9 @@ const AnimatedFeatureCard = ({ title, icon: Icon, items, iconColor }: AnimatedFe
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3 + index * 0.1 }}
-              className={`w-5 h-5 ${iconColor} mt-1 flex-shrink-0`}
+              className={`flex-shrink-0`}
             >
-              •
+              <CheckCircle2 className={`w-5 h-5 ${iconColor} animate-pulse`} />
             </motion.div>
             {item}
           </li>
