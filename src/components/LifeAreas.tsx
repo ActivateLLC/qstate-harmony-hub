@@ -116,7 +116,7 @@ const LifeAreas = () => {
               viewport={{ 
                 once: true, 
                 margin: "-20%",
-                amount: 0.4 // Only trigger when 40% of the element is visible
+                amount: 0.4
               }}
               transition={{ 
                 duration: 0.8,
@@ -133,8 +133,20 @@ const LifeAreas = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-qblue/10 to-qpink/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
               <motion.div 
                 className={`${area.color} mb-6 relative`}
-                whileHover={{ rotate: 180 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
+                whileHover={
+                  area.title === "Social Connection" 
+                    ? {
+                        x: [0, -20, 0],
+                        scale: [1, 1.2, 1],
+                        transition: {
+                          duration: 1,
+                          ease: "easeInOut",
+                          times: [0, 0.5, 1],
+                          repeat: Infinity
+                        }
+                      }
+                    : { rotate: 180, transition: { duration: 0.8, ease: "easeInOut" }}
+                }
               >
                 <area.icon className="w-12 h-12 animate-glow" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
