@@ -4,17 +4,24 @@ export const runPythonScript = async (scriptPath: string, args: string[] = []): 
   
   // Return mock data based on the script being called
   if (scriptPath === 'portfolio_optimization.py') {
+    const numAssets = parseInt(args[0]) || 5;
+    
+    // Scale risk and return based on number of assets
+    const baseReturn = 0.35; // 35% base return
+    const expectedReturn = baseReturn + (numAssets * 0.02); // Increases with more assets
+    const riskLevel = 0.15 + (numAssets * 0.015); // Risk increases with more assets
+    
+    // Generate dynamic allocation based on number of assets
+    const allocation: Record<string, number> = {};
+    for (let i = 0; i < numAssets; i++) {
+      allocation[`Asset_${i}`] = 1 / numAssets;
+    }
+
     return [JSON.stringify({
       success: true,
-      allocation: {
-        "Asset_0": 0.2,
-        "Asset_1": 0.3,
-        "Asset_2": 0.15,
-        "Asset_3": 0.2,
-        "Asset_4": 0.15
-      },
-      expected_return: 0.25, // Increased from 0.12 to 0.25 (25% return)
-      risk_level: 0.15,     // Increased risk level to match higher returns
+      allocation,
+      expected_return: expectedReturn,
+      risk_level: riskLevel,
       energy: -2.5
     })];
   }
