@@ -99,8 +99,8 @@ const LifeAreas = () => {
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-4xl font-bold text-center mb-16"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-qblue to-qpink animate-glow">
@@ -113,16 +113,19 @@ const LifeAreas = () => {
               key={area.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ 
+                once: true, 
+                margin: "-20%",
+                amount: 0.4 // Only trigger when 40% of the element is visible
+              }}
               transition={{ 
-                duration: 0.5,
+                duration: 0.8,
                 delay: index * 0.1,
-                type: "spring",
-                stiffness: 50
+                ease: "easeOut"
               }}
               whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.2 }
+                scale: 1.03,
+                transition: { duration: 0.3 }
               }}
               className="glass-card p-8 hover:scale-105 transition-transform duration-300 relative group cursor-pointer"
               onClick={() => handleAreaClick(area.title)}
@@ -130,19 +133,15 @@ const LifeAreas = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-qblue/10 to-qpink/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
               <motion.div 
                 className={`${area.color} mb-6 relative`}
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
+                whileHover={{ rotate: 180 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               >
                 <area.icon className="w-12 h-12 animate-glow" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
               </motion.div>
-              <motion.h3 
-                className="text-xl font-semibold mb-3"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-              >
+              <h3 className="text-xl font-semibold mb-3">
                 {area.title}
-              </motion.h3>
+              </h3>
               <p className="text-gray-400">
                 {area.description}
               </p>
