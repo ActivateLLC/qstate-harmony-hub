@@ -10,41 +10,64 @@ const SecurityIcon = ({ Icon, color }: SecurityIconProps) => {
   return (
     <div className="relative">
       <Icon className="w-12 h-12" />
+      {/* Shield pulse effect */}
       <motion.div
-        className="absolute inset-0 rounded-full"
-        initial={{ opacity: 0, scale: 1 }}
+        className="absolute inset-0"
+        initial={{ scale: 1, opacity: 0.5 }}
         animate={{
-          opacity: [0, 0.2, 0],
-          scale: [1, 1.5, 1],
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0, 0.5],
         }}
         transition={{
           duration: 2,
           repeat: Infinity,
-          repeatType: "mirror",
+          ease: "easeInOut",
         }}
       >
-        <div className={`w-full h-full ${color} opacity-30 rounded-full`} />
+        <div className={`w-full h-full ${color} opacity-20 rounded-lg`} />
       </motion.div>
-      {[...Array(4)].map((_, index) => (
+      
+      {/* Security scan lines */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <motion.div
-          key={`lock-${index}`}
-          className="absolute"
-          initial={{ opacity: 0 }}
+          className="absolute w-full h-1 bg-gradient-to-r from-transparent via-qblue to-transparent"
           animate={{
+            y: ["0%", "400%"],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </motion.div>
+
+      {/* Protective dots */}
+      {[...Array(3)].map((_, index) => (
+        <motion.div
+          key={index}
+          className="absolute w-1.5 h-1.5 rounded-full bg-qpink"
+          initial={{ 
+            x: 0,
+            y: 0,
+            opacity: 0 
+          }}
+          animate={{
+            x: [0, Math.cos(index * Math.PI * 2 / 3) * 20],
+            y: [0, Math.sin(index * Math.PI * 2 / 3) * 20],
             opacity: [0, 1, 0],
-            rotate: [0, 90 * index],
-            x: [0, Math.cos(index * Math.PI / 2) * 20],
-            y: [0, Math.sin(index * Math.PI / 2) * 20],
           }}
           transition={{
             duration: 1.5,
-            delay: index * 0.2,
             repeat: Infinity,
-            repeatType: "mirror"
+            delay: index * 0.3,
+            ease: "easeInOut",
           }}
-        >
-          <div className={`w-2 h-2 rounded-full ${index % 2 === 0 ? 'bg-qblue' : 'bg-qpink'} opacity-30`} />
-        </motion.div>
+        />
       ))}
     </div>
   );
