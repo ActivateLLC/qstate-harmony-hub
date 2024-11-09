@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 import { SessionContextProvider, useSession } from '@supabase/auth-helpers-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from "@/components/ui/sonner";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -17,6 +19,7 @@ function App() {
     <SessionContextProvider supabaseClient={supabase}>
       <QueryClientProvider client={queryClient}>
         <Router>
+          <AuthStateHandler />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
@@ -36,6 +39,23 @@ function App() {
       </QueryClientProvider>
     </SessionContextProvider>
   );
+}
+
+// Auth state handler component
+function AuthStateHandler() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        navigate('/health-nutrition');
+      } else if (event === 'SIGNED_OUT') {
+        navigate('/login');
+      }
+    });
+  }, [navigate]);
+
+  return null;
 }
 
 // Auth protection component
