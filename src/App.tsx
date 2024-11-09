@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import HealthNutritionOverview from "./pages/HealthNutritionOverview";
 import HealthNutritionDescription from "./pages/HealthNutritionDescription";
+import NutritionDashboard from "@/components/nutrition/NutritionDashboard";
 import { supabase } from "./integrations/supabase/client";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,14 @@ function App() {
               element={
                 <RequireAuth>
                   <HealthNutritionOverview />
+                </RequireAuth>
+              } 
+            />
+            <Route 
+              path="/nutrition-dashboard" 
+              element={
+                <RequireAuth>
+                  <NutritionDashboard />
                 </RequireAuth>
               } 
             />
