@@ -29,7 +29,8 @@ export const SignupForm = () => {
 
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.auth.signUp({
+      // First sign up the user
+      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
@@ -39,15 +40,15 @@ export const SignupForm = () => {
         },
       });
 
-      if (error) throw error;
+      if (signUpError) throw signUpError;
 
-      if (data) {
+      if (signUpData.user) {
         // Create a profile record
         const { error: profileError } = await supabase
           .from('profiles')
           .insert([
             {
-              id: data.user?.id,
+              id: signUpData.user.id,
               name: formData.fullName,
             }
           ]);
@@ -59,14 +60,22 @@ export const SignupForm = () => {
           .from('nutrition_preferences')
           .insert([
             {
-              user_id: data.user?.id,
+              user_id: signUpData.user.id,
             }
           ]);
 
         if (nutritionError) throw nutritionError;
 
+        // Now explicitly sign in the user
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (signInError) throw signInError;
+
         toast.success("Account created successfully!");
-        // The AuthStateHandler in App.tsx will handle the redirection
+        navigate('/health-nutrition');
       }
     } catch (error: any) {
       toast.error(error.message || "An error occurred during signup");
