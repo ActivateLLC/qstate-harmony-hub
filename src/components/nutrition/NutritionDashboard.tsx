@@ -11,6 +11,7 @@ interface DietaryTrend {
   id: string;
   name: string;
   description: string;
+  created_at: string;
 }
 
 const NutritionDashboard = () => {
@@ -20,14 +21,14 @@ const NutritionDashboard = () => {
   const [mineralPreference, setMineralPreference] = useState([50]);
   const [superfoodPreference, setSuperfoodPreference] = useState([50]);
 
-  const { data: dietaryTrends } = useQuery({
+  const { data: dietaryTrends, isLoading } = useQuery<DietaryTrend[]>({
     queryKey: ['dietaryTrends'],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('dietary_trends')
         .select('*');
       if (error) throw error;
-      return data as DietaryTrend[];
+      return data;
     }
   });
 
@@ -63,11 +64,15 @@ const NutritionDashboard = () => {
                 <SelectValue placeholder="Select your dietary preference" />
               </SelectTrigger>
               <SelectContent>
-                {dietaryTrends?.map((trend) => (
-                  <SelectItem key={trend.id} value={trend.id}>
-                    {trend.name}
-                  </SelectItem>
-                ))}
+                {isLoading ? (
+                  <SelectItem value="loading" disabled>Loading...</SelectItem>
+                ) : (
+                  dietaryTrends?.map((trend) => (
+                    <SelectItem key={trend.id} value={trend.id}>
+                      {trend.name}
+                    </SelectItem>
+                  ))
+                )}
               </SelectContent>
             </Select>
           </CardContent>
