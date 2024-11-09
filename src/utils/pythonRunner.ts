@@ -13,8 +13,8 @@ export const runPythonScript = async (scriptPath: string, args: string[] = []): 
         "Asset_3": 0.2,
         "Asset_4": 0.15
       },
-      expected_return: 0.12,
-      risk_level: 0.08,
+      expected_return: 0.25, // Increased from 0.12 to 0.25 (25% return)
+      risk_level: 0.15,     // Increased risk level to match higher returns
       energy: -2.5
     })];
   }
