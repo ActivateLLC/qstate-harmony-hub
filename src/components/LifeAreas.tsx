@@ -156,6 +156,18 @@ const LifeAreas = () => {
                           repeatDelay: 0.5
                         }
                       }
+                    : area.title === "Communication"
+                    ? {
+                        scale: [1, 1.2, 1],
+                        opacity: [1, 0.5, 1],
+                        transition: {
+                          duration: 1.5,
+                          ease: "easeInOut",
+                          times: [0, 0.5, 1],
+                          repeat: Infinity,
+                          repeatType: "reverse"
+                        }
+                      }
                     : { rotate: 180, transition: { duration: 0.8, ease: "easeInOut" }}
                 }
               >
