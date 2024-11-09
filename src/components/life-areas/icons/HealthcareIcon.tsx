@@ -10,33 +10,6 @@ const HealthcareIcon = ({ Icon, color }: HealthcareIconProps) => {
   return (
     <div className="relative">
       <Icon className="w-12 h-12" />
-      <motion.div
-        initial={false}
-        whileHover={{
-          opacity: [0, 1, 0],
-          scale: [0.8, 1.2, 1.5],
-          transition: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "loop",
-          }
-        }}
-        className="absolute inset-0 border-4 border-qblue rounded-full"
-      />
-      <motion.div
-        initial={false}
-        whileHover={{
-          opacity: [0, 0.5, 0],
-          scale: [1, 1.5, 2],
-          transition: {
-            duration: 2,
-            delay: 0.5,
-            repeat: Infinity,
-            repeatType: "loop",
-          }
-        }}
-        className="absolute inset-0 border-2 border-qpink rounded-full"
-      />
       {[...Array(3)].map((_, index) => (
         <motion.div
           key={`pulse-${index}`}

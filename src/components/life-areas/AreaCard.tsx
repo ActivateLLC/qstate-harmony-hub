@@ -89,7 +89,6 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         ) : (
           <Icon className="w-12 h-12" />
         )}
-        <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
       </motion.div>
       <h3 className="text-xl font-semibold mb-3">
         {title}
