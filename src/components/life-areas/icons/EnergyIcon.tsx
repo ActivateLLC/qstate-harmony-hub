@@ -12,7 +12,18 @@ const EnergyIcon = ({ Icon, color }: EnergyIconProps) => {
       className="relative"
       whileHover={{ 
         rotate: 360,
-        transition: { duration: 1, ease: "easeInOut" }
+        transition: { 
+          duration: 1, 
+          ease: "easeInOut",
+          repeat: 0,
+          repeatType: "loop",
+          repeatDelay: 0,
+          stiffness: 0,
+          damping: 0,
+          restDelta: 0.001,
+          restSpeed: 0.001,
+          bounce: 0
+        }
       }}
     >
       <Icon className="w-12 h-12" />
