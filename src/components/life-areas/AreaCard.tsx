@@ -125,33 +125,52 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
               whileHover={{ 
                 opacity: [0, 1, 1, 0],
                 scale: [0.5, 1, 1, 0.5],
-                y: [0, -20, -20, 0],
+                y: [-10, -30],
+                x: [-10, -20],
                 transition: {
-                  duration: 1.5,
+                  duration: 1.2,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
                 }
               }}
-              className="absolute -right-2 top-0"
+              className="absolute -right-4 top-0"
             >
-              <div className="text-lg font-bold text-qpink">$</div>
+              <div className="text-lg font-bold text-qpink">₿</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0, y: 0 }}
               whileHover={{ 
                 opacity: [0, 1, 1, 0],
                 scale: [0.5, 1, 1, 0.5],
-                y: [0, -15, -15, 0],
+                y: [-5, -25],
+                x: [10, 20],
                 transition: {
-                  duration: 1.5,
-                  delay: 0.2,
+                  duration: 1.2,
+                  delay: 0.3,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
                 }
               }}
-              className="absolute right-2 top-0"
+              className="absolute -right-2 top-0"
             >
-              <div className="text-lg font-bold text-qblue">$</div>
+              <div className="text-lg font-bold text-qblue">₿</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0, y: 0 }}
+              whileHover={{ 
+                opacity: [0, 1, 1, 0],
+                scale: [0.5, 1, 1, 0.5],
+                y: [-15, -35],
+                transition: {
+                  duration: 1.2,
+                  delay: 0.6,
+                  times: [0, 0.3, 0.7, 1],
+                  repeat: Infinity,
+                }
+              }}
+              className="absolute right-0 top-0"
+            >
+              <div className="text-lg font-bold text-qpink">₿</div>
             </motion.div>
           </div>
         ) : (
