@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { createClient } from '@supabase/supabase-js';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import { SessionContextProvider, useSession } from '@supabase/auth-helpers-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from "@/components/ui/sonner";
 import Index from "./pages/Index";
