@@ -5,6 +5,9 @@ import { DietaryTrendCard } from "./DietaryTrendCard";
 import { NutritionPreferencesCard } from "./NutritionPreferencesCard";
 import { QuickActionsCard } from "./QuickActionsCard";
 import { HealthTrajectoryCharts } from "./HealthTrajectoryCharts";
+import { MealPlanningCard } from "./MealPlanningCard";
+import { ProgressTrackingCard } from "./ProgressTrackingCard";
+import { SmartRecommendationsCard } from "./SmartRecommendationsCard";
 import type { DietaryTrend, WellnessGoal } from "./types";
 
 // Temporary static data until the database is set up
@@ -78,6 +81,9 @@ const NutritionDashboard: React.FC = () => {
           setSuperfoodPreference={setSuperfoodPreference}
         />
 
+        <MealPlanningCard />
+        <ProgressTrackingCard />
+        <SmartRecommendationsCard />
         <QuickActionsCard />
       </div>
 
