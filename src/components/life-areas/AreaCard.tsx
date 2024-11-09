@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, PhoneCall, Smartphone } from "lucide-react";
+import { LucideIcon, Smartphone } from "lucide-react";
 
 interface AreaCardProps {
   title: string;
@@ -83,7 +83,12 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         {title === "Banking & Finance" ? (
           <div className="relative">
             <Icon className="w-12 h-12" />
-            <Smartphone className="absolute -right-8 top-1 w-6 h-6 text-qblue" />
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="absolute -right-6 top-3"
+            >
+              <Smartphone className="w-8 h-8 text-qblue transition-colors duration-300 group-hover:text-qpink" />
+            </motion.div>
             {[...Array(3)].map((_, index) => (
               <motion.div
                 key={`bitcoin-${index}`}
