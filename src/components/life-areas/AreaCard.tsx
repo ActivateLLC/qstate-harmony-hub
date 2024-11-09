@@ -184,53 +184,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
         ) : (
           <Icon className="w-12 h-12 animate-glow" />
         )}
-        <div className="absolute -inset-2">
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl"
-            animate={{
-              background: [
-                "linear-gradient(to right, #00f0ff, #ff00a0)",
-                "linear-gradient(to right, #ff00a0, #00f0ff)",
-                "linear-gradient(to right, #00f0ff, #ff00a0)",
-              ],
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              repeatType: "mirror" as const,
-              ease: "linear"
-            }}
-          />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-qblue/30 to-qpink/30 rounded-full blur-lg"
-            animate={{
-              opacity: [0, 0.3, 0],
-              scale: [0.8, 1.1, 0.8],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "mirror" as const,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute inset-0 border-2 border-transparent"
-            style={{
-              background: "linear-gradient(to right, transparent, transparent) padding-box, linear-gradient(to right, #00f0ff, #ff00a0) border-box",
-            }}
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-        </div>
+        <div className="absolute -inset-2 bg-gradient-to-r from-qblue to-qpink opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity" />
       </motion.div>
       <h3 className="text-xl font-semibold mb-3">
         {title}
