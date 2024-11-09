@@ -33,11 +33,14 @@ const Login = () => {
         <ArrowLeft className="w-6 h-6 text-white group-hover:text-qblue transition-colors" />
       </Link>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="glass-card w-full max-w-md p-8 space-y-8 relative"
-      >
+      {/* Container for login card and its reflection */}
+      <div className="relative">
+        {/* Main login card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="glass-card w-full max-w-md p-8 space-y-8 relative"
+        >
         {/* Enhanced glow effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-qblue/20 to-qpink/20 blur-xl opacity-50" />
         <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
@@ -114,7 +117,33 @@ const Login = () => {
             </Link>
           </p>
         </div>
-      </motion.div>
+        </motion.div>
+
+        {/* Reflection effect */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          className="glass-card w-full max-w-md p-8 space-y-8 relative mt-1 transform scale-y-[-0.98] scale-x-[0.98] opacity-30 blur-[1px]"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.1), transparent)',
+            maskImage: 'linear-gradient(to bottom, rgba(255,255,255,1), transparent)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(255,255,255,1), transparent)',
+          }}
+        >
+          {/* Reflection content - same structure as main card but simplified */}
+          <div className="relative z-10 space-y-8 opacity-50">
+            <div className="flex flex-col items-center space-y-4">
+              <div className="w-20 h-20 rounded-full glass-card" />
+              <div className="h-8 w-32 bg-white/10 rounded" />
+            </div>
+            <div className="space-y-6">
+              <div className="h-12 bg-white/5 rounded-lg" />
+              <div className="h-12 bg-white/5 rounded-lg" />
+              <div className="h-12 bg-white/5 rounded-lg" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
