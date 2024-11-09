@@ -32,14 +32,30 @@
     @apply border-border;
   }
   body {
-    @apply bg-qdark text-foreground;
+    @apply bg-qdark text-foreground antialiased;
   }
 }
 
 .glass-card {
-  @apply bg-opacity-10 backdrop-blur-lg bg-white border border-white/10 rounded-xl;
+  @apply bg-opacity-5 backdrop-blur-xl bg-white border border-white/10 rounded-xl relative overflow-hidden;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .glow-text {
-  text-shadow: 0 0 10px currentColor;
+  text-shadow: 0 0 20px currentColor;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+.animate-neon {
+  animation: neon-pulse 2s ease-in-out infinite;
 }
