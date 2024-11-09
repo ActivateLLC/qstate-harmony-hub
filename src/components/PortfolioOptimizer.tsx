@@ -83,18 +83,25 @@ const PortfolioOptimizer = () => {
 
             <div className="space-y-2">
               <h4 className="text-sm font-medium">Asset Allocation</h4>
-              <div className="grid grid-cols-2 gap-2">
-                {Object.entries(data.allocation!).map(([asset, weight]) => (
-                  <div
-                    key={asset}
-                    className="flex justify-between items-center p-2 bg-muted rounded"
-                  >
-                    <span className="text-sm">{asset}</span>
-                    <span className="font-medium">
-                      {(weight * 100).toFixed(1)}%
-                    </span>
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-2 blur-sm">
+                  {Object.entries(data.allocation!).map(([asset, weight]) => (
+                    <div
+                      key={asset}
+                      className="flex justify-between items-center p-2 bg-muted rounded"
+                    >
+                      <span className="text-sm">{asset}</span>
+                      <span className="font-medium">
+                        {(weight * 100).toFixed(1)}%
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="glass-card px-6 py-3 text-lg font-semibold text-center bg-opacity-90 backdrop-blur-md">
+                    Subscribe to Unlock
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
