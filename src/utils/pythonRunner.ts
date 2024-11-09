@@ -1,8 +1,8 @@
-import { PythonShell } from 'python-shell';
+import { PythonShell, Options } from 'python-shell';
 
 export const runPythonScript = async (scriptPath: string, args: string[] = []): Promise<string[]> => {
-  const options = {
-    mode: 'text',
+  const options: Options = {
+    mode: 'text' as const,
     pythonPath: 'python3',
     pythonOptions: ['-u'], // unbuffered output
     scriptPath: './python_scripts',
