@@ -8,7 +8,7 @@ interface AnimatedFeatureCardProps {
   iconColor: "text-qblue" | "text-qpink";
 }
 
-const AnimatedFeatureCard = ({ title, icon: Icon, items, iconColor }: AnimatedFeatureCardProps) => {
+const AnimatedFeatureCard = ({ title, icon: Icon, items = [], iconColor }: AnimatedFeatureCardProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
@@ -21,7 +21,7 @@ const AnimatedFeatureCard = ({ title, icon: Icon, items, iconColor }: AnimatedFe
         {title}
       </h2>
       <ul className="space-y-4 text-gray-300">
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <li key={index} className="flex items-start gap-2">
             <motion.div
               initial={{ scale: 0 }}
