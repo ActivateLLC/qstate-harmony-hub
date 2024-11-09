@@ -62,14 +62,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           }
         };
       default:
-        return { 
-          rotate: 180, 
-          transition: { 
-            duration: 0.8, 
-            ease: "easeInOut",
-            repeatType: "mirror" as const
-          } 
-        };
+        return {}; // Return empty object instead of rotation animation
     }
   };
 
