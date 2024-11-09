@@ -131,6 +131,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   duration: 1.2,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
+                  repeatType: "mirror"
                 }
               }}
               className="absolute -right-4 top-0"
@@ -149,6 +150,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   delay: 0.3,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
+                  repeatType: "mirror"
                 }
               }}
               className="absolute -right-2 top-0"
@@ -166,6 +168,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                   delay: 0.6,
                   times: [0, 0.3, 0.7, 1],
                   repeat: Infinity,
+                  repeatType: "mirror"
                 }
               }}
               className="absolute right-0 top-0"
