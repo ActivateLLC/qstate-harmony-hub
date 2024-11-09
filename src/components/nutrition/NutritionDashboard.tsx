@@ -4,6 +4,7 @@ import { WelcomeSection } from "./WelcomeSection";
 import { DietaryTrendCard } from "./DietaryTrendCard";
 import { NutritionPreferencesCard } from "./NutritionPreferencesCard";
 import { QuickActionsCard } from "./QuickActionsCard";
+import { HealthTrajectoryCharts } from "./HealthTrajectoryCharts";
 import type { DietaryTrend, WellnessGoal } from "./types";
 
 // Temporary static data until the database is set up
@@ -79,6 +80,8 @@ const NutritionDashboard: React.FC = () => {
 
         <QuickActionsCard />
       </div>
+
+      <HealthTrajectoryCharts />
     </div>
   );
 };
