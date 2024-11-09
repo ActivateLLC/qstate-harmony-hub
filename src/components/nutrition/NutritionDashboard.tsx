@@ -28,7 +28,7 @@ const NutritionDashboard = () => {
         .from('dietary_trends')
         .select('*');
       if (error) throw error;
-      return data;
+      return data as DietaryTrend[];
     }
   });
 
