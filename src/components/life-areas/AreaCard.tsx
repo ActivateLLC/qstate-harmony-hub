@@ -20,7 +20,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             duration: 1,
             ease: "easeInOut",
             times: [0, 0.5, 1],
-            repeat: Infinity
+            repeat: Infinity,
+            repeatType: "mirror"
           }
         };
       case "Transportation":
@@ -31,6 +32,7 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
             duration: 1.2,
             ease: "easeInOut",
             repeat: Infinity,
+            repeatType: "mirror",
             repeatDelay: 0.5
           }
         };
@@ -64,7 +66,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
           rotate: 180, 
           transition: { 
             duration: 0.8, 
-            ease: "easeInOut" 
+            ease: "easeInOut",
+            repeatType: "mirror"
           } 
         };
     }
@@ -94,7 +97,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                 scale: 0.8,
                 transition: {
                   duration: 0.3,
-                  ease: "easeOut"
+                  ease: "easeOut",
+                  repeatType: "mirror"
                 }
               }}
               className="absolute -right-4 top-0"
@@ -109,7 +113,8 @@ const AreaCard = ({ title, description, icon: Icon, color, onClick }: AreaCardPr
                 transition: {
                   duration: 0.3,
                   delay: 0.15,
-                  ease: "easeOut"
+                  ease: "easeOut",
+                  repeatType: "mirror"
                 }
               }}
               className="absolute -left-4 bottom-0"
