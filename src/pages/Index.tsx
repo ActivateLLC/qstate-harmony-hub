@@ -91,22 +91,30 @@ const Index = () => {
           <div className="absolute bottom-0 w-full h-64 bg-gradient-to-t from-qdark to-transparent" />
           <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.1)_0%,transparent_50%)]" />
           
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          {/* Enhanced Grid Pattern with Animation */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] animate-[pulse_4s_ease-in-out_infinite]" />
           
-          {/* Light Beams */}
+          {/* Animated Light Beams */}
           <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-qblue via-transparent to-transparent opacity-30 animate-pulse" />
           <div className="absolute right-1/4 top-0 w-px h-full bg-gradient-to-b from-qpink via-transparent to-transparent opacity-30 animate-pulse delay-300" />
           <div className="absolute left-1/3 top-0 w-px h-full bg-gradient-to-b from-qblue via-transparent to-transparent opacity-20 animate-pulse delay-500" />
           <div className="absolute right-1/3 top-0 w-px h-full bg-gradient-to-b from-qpink via-transparent to-transparent opacity-20 animate-pulse delay-700" />
           
-          {/* Circular Interface Elements */}
-          <div className="absolute top-20 left-20 w-32 h-32 rounded-full border border-qblue/20 animate-ping" />
-          <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full border border-qpink/20 animate-ping delay-1000" />
+          {/* New Floating Particles */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-qblue/50 animate-float" />
+          <div className="absolute top-3/4 right-1/4 w-2 h-2 rounded-full bg-qpink/50 animate-float delay-1000" />
+          <div className="absolute top-1/2 left-3/4 w-2 h-2 rounded-full bg-qblue/50 animate-float delay-2000" />
           
-          {/* Interface Lines */}
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qblue/20 to-transparent" />
-          <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qpink/20 to-transparent" />
+          {/* New Circular Interface Elements */}
+          <div className="absolute top-20 left-20 w-32 h-32 rounded-full border border-qblue/20 animate-[spin_10s_linear_infinite]" />
+          <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full border border-qpink/20 animate-[spin_8s_linear_infinite_reverse]" />
+          
+          {/* New Scanning Lines */}
+          <div className="absolute top-0 left-0 w-full h-screen bg-[linear-gradient(transparent_0%,rgba(0,240,255,0.05)_50%,transparent_100%)] animate-[moveY_3s_linear_infinite]" />
+          
+          {/* New Interface Lines */}
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qblue/20 to-transparent animate-pulse" />
+          <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-qpink/20 to-transparent animate-pulse delay-1000" />
         </div>
         
         <div className="container mx-auto px-4 relative z-20">
