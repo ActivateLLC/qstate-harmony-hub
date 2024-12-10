@@ -1,10 +1,10 @@
-import { createClient } from '@supabase/supabase-js'
-import { HealthMetrics, ApiResponse } from './types'
+import { createClient } from '@supabase/supabase-js';
+import { HealthMetrics, ApiResponse } from './types';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_ANON_KEY
-)
+);
 
 export class ApiClient {
   async getHealthMetrics(userId: string): Promise<ApiResponse<HealthMetrics[]>> {
@@ -13,21 +13,21 @@ export class ApiClient {
         .from('health_metrics')
         .select('*')
         .eq('user_id', userId)
-        .order('date', { ascending: false })
+        .order('date', { ascending: false });
 
-      if (error) throw error
+      if (error) throw error;
 
       return {
         data,
         error: null,
         loading: false
-      }
+      };
     } catch (error) {
       return {
         data: null,
         error: error instanceof Error ? error.message : 'An error occurred',
         loading: false
-      }
+      };
     }
   }
 
@@ -37,23 +37,23 @@ export class ApiClient {
         .from('health_metrics')
         .insert([{ ...metrics, date: new Date().toISOString() }])
         .select()
-        .single()
+        .single();
 
-      if (error) throw error
+      if (error) throw error;
 
       return {
         data,
         error: null,
         loading: false
-      }
+      };
     } catch (error) {
       return {
         data: null,
         error: error instanceof Error ? error.message : 'An error occurred',
         loading: false
-      }
+      };
     }
   }
 }
 
-export const api = new ApiClient()
+export const api = new ApiClient();
