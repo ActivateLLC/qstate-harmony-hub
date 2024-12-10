@@ -11,3 +11,11 @@ export interface HealthMetrics {
   stressLevel: number;
   date: string;
 }
+
+export interface UserProfile {
+  id: string;
+  email: string;
+  name?: string;
+  preferences?: Record<string, any>;
+  createdAt: string;
+}
